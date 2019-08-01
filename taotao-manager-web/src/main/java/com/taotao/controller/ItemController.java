@@ -34,52 +34,24 @@ public class ItemController {
     @ResponseBody
     public TaotaoResult deleteItems(Long[] ids) {
         TaotaoResult taotaoResult = itemService.deleteItems(ids);
-        return  taotaoResult;
+        return taotaoResult;
     }
 
     /*商品下架*/
     @RequestMapping("/rest/item/instock")
     @ResponseBody
-    public ResultStatus instoc(Long[] ids) {
-        /*System.out.println(ids);
-        QueryVo vo = new QueryVo();
-        vo.setIds(ids);*/
-        for (int i = 0; i < ids.length; i++) {
-            itemService.instocById(ids[i]);
-        }
-        /*itemService.reshelfItem(vo);*/
-        ResultStatus status = new ResultStatus();
-        status.setStatus(200);
-        return status;
+    public TaotaoResult instoc(Long[] ids) {
+        TaotaoResult taotaoResult = itemService.instocByIds(ids);
+        return taotaoResult;
     }
 
     /*商品上架*/
     @RequestMapping("/rest/item/reshelf")
     @ResponseBody
-    public ResultStatus reshelf(Long[] ids) {
-        /*System.out.println(ids);
-        QueryVo vo = new QueryVo();
-        vo.setIds(ids);*/
-        for (int i = 0; i < ids.length; i++) {
-            itemService.reshelfById(ids[i]);
-        }
-        /*itemService.reshelfItem(vo);*/
-        ResultStatus status = new ResultStatus();
-        status.setStatus(200);
-        return status;
+    public TaotaoResult reshelf(Long[] ids) {
+        TaotaoResult taotaoResult = itemService.reshelfByIds(ids);
+        return taotaoResult;
     }
-
-
-    @RequestMapping("/rest/page/item-edit")
-    @ResponseBody
-    public ResultStatus itemEdit(@RequestBody TbItem tbItem) {
-        System.out.println(tbItem);
-        ResultStatus status = new ResultStatus();
-        status.setStatus(200);
-        return status;
-
-    }
-
 
 
 }

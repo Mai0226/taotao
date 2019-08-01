@@ -45,24 +45,23 @@ public class ItemServiceImpl implements ItemService {
         return null;
     }
 
+
     @Override
-    public void deleteItemById(Long id) {
-        itemMapper.deleteItemById(id);
+    public TaotaoResult instocByIds(Long[] ids) {
+        int i = itemMapper.instocByIds(ids);
+        if (i>=0){
+            return TaotaoResult.ok();
+        }
+        return null;
     }
 
     @Override
-    public void reshelfItem(QueryVo vo) {
-        itemMapper.reshelfItem(vo);
-    }
-
-    @Override
-    public void instocById(Long id) {
-        itemMapper.instocById(id);
-    }
-
-    @Override
-    public void reshelfById(Long id) {
-        itemMapper.reshelfById(id);
+    public TaotaoResult reshelfByIds(Long[] ids) {
+        int i = itemMapper.reshelfByIds(ids);
+        if (i>=0){
+            return TaotaoResult.ok();
+        }
+        return null;
     }
 
 

@@ -19,12 +19,8 @@ public interface ItemMapper {
     @Delete("<script>delete from tbitem where id in <foreach collection='array' open='(' close=')' separator= ',' item='id'>#{id}</foreach></script>")
     int deleteItems(Long[] ids);
 
-    @Delete(value = "DELETE from tbitem where  id = #{id}")
-    void deleteItemById(Long id);
-    @Update("update tbitem set status = 2"+"<where>"+"<foreach collection='com.taotao.pojo.QueryVo' open='id in (' close=')' separator= ',' item='id'>"+"#{id}"+"</foreach>"+"</where>"+"</if>")
-    void reshelfItem(QueryVo vo);
-    @Update("update tbitem set status = 2 where id = #{id}")
-    void instocById(Long id);
-    @Update("update tbitem set status = 1 where id = #{id}")
-    void reshelfById(Long id);
+    @Update("<script>update tbitem set status = 2 where id in <foreach collection='array' open='(' close=')' separator= ',' item='id'>#{id}</foreach></script>")
+    int instocByIds(Long[] ids);
+    @Update("<script>update tbitem set status = 1 where id in <foreach collection='array' open='(' close=')' separator= ',' item='id'>#{id}</foreach></script>")
+    int reshelfByIds(Long[] ids);
 }
