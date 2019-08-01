@@ -2,6 +2,7 @@ package com.taotao.service;
 
 import com.taotao.commom.pojo.EasyUIResult;
 import com.taotao.commom.pojo.QueryVo;
+import com.taotao.commom.pojo.TaotaoResult;
 import com.taotao.pojo.TbItem;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface ItemService {
 
     EasyUIResult findPageItems(int page,int rows);
 
-    void deleteItems(QueryVo vo);
+    TaotaoResult deleteItems(Long[] ids);
 
     void deleteItemById(Long id);
 

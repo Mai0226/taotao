@@ -1,17 +1,12 @@
 package com.taotao.controller;
 
 import com.alibaba.dubbo.common.URL;
-import com.taotao.commom.pojo.EasyUIResult;
-import com.taotao.commom.pojo.QueryVo;
-import com.taotao.commom.pojo.ResultStatus;
+import com.taotao.commom.pojo.*;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,26 +29,22 @@ public class ItemController {
         return easyUIResult;
     }
 
+    /*批量删除商品*/
     @RequestMapping("/rest/item/delete")
     @ResponseBody
-    public ResultStatus deleteItems(Long[] ids) {
-       /*QueryVo vo = new QueryVo();
-        vo.setIds(ids);
-        itemService.deleteItems(vo);*/
-        for (int i = 0; i < ids.length; i++) {
-            itemService.deleteItemById(ids[i]);
-        }
-        ResultStatus status = new ResultStatus();
-        status.setStatus(200);
-        return status;
+    public TaotaoResult deleteItems(Long[] ids) {
+        TaotaoResult taotaoResult = itemService.deleteItems(ids);
+        return  taotaoResult;
     }
+
+    /*商品下架*/
     @RequestMapping("/rest/item/instock")
     @ResponseBody
-    public ResultStatus instoc(Long[] ids){
+    public ResultStatus instoc(Long[] ids) {
         /*System.out.println(ids);
         QueryVo vo = new QueryVo();
         vo.setIds(ids);*/
-        for (int i = 0; i <ids.length; i++) {
+        for (int i = 0; i < ids.length; i++) {
             itemService.instocById(ids[i]);
         }
         /*itemService.reshelfItem(vo);*/
@@ -62,13 +53,14 @@ public class ItemController {
         return status;
     }
 
+    /*商品上架*/
     @RequestMapping("/rest/item/reshelf")
     @ResponseBody
-    public ResultStatus reshelf(Long[] ids){
+    public ResultStatus reshelf(Long[] ids) {
         /*System.out.println(ids);
         QueryVo vo = new QueryVo();
         vo.setIds(ids);*/
-        for (int i = 0; i <ids.length; i++) {
+        for (int i = 0; i < ids.length; i++) {
             itemService.reshelfById(ids[i]);
         }
         /*itemService.reshelfItem(vo);*/
@@ -80,10 +72,14 @@ public class ItemController {
 
     @RequestMapping("/rest/page/item-edit")
     @ResponseBody
-    public ResultStatus itemEdit(@RequestBody TbItem tbItem){
+    public ResultStatus itemEdit(@RequestBody TbItem tbItem) {
         System.out.println(tbItem);
         ResultStatus status = new ResultStatus();
         status.setStatus(200);
         return status;
+
     }
+
+
+
 }

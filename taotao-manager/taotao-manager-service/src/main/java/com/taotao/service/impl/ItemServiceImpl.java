@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.commom.pojo.EasyUIResult;
 import com.taotao.commom.pojo.QueryVo;
+import com.taotao.commom.pojo.TaotaoResult;
 import com.taotao.mapper.ItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
@@ -36,8 +37,12 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public void deleteItems(QueryVo vo) {
-        itemMapper.deleteItems(vo);
+    public TaotaoResult deleteItems(Long[] ids) {
+       int i = itemMapper.deleteItems(ids);
+        if (i>=0){
+            return TaotaoResult.ok();
+        }
+        return null;
     }
 
     @Override
