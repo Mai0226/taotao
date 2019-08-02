@@ -17,7 +17,7 @@ public class PicServiceImpl implements PicService {
         String bucketName = "max-taotao";
         String newName = IDUtils.genImageName() + name.substring(name.lastIndexOf("."));
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-        String url = HttpUtil.uploadFile(endpoint,accessKeyId,accessKeySecret,bucketName,name,bis);
+        String url = HttpUtil.uploadFile(endpoint,accessKeyId,accessKeySecret,bucketName,newName,bis);
         PicResult picResult = new PicResult();
         picResult.setError(0);
         picResult.setUrl(url);

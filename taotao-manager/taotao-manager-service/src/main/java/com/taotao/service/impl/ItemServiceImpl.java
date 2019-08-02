@@ -87,4 +87,23 @@ public class ItemServiceImpl implements ItemService {
         }
         return null;
     }
+
+    @Override
+    public TaotaoResult getItemDesc(Long id) {
+        TbItemDesc tbItemDesc = itemMapper.getItemDesc(id);
+        return TaotaoResult.ok(tbItemDesc);
+    }
+
+    @Override
+    public TaotaoResult updateItem(TbItem tbItem, String desc) {
+        Date date = new Date();
+        Long itemId  =tbItem.getId();
+        int descCount = itemMapper.updateDesc(desc,itemId);
+        tbItem.setUpdated(date);
+        int itemCount = itemMapper.updateItem(tbItem);
+        if(descCount!=0&&itemCount!=0){
+            return TaotaoResult.ok();
+        }
+        return null;
+    }
 }

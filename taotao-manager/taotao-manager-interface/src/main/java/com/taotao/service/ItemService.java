@@ -21,4 +21,8 @@ public interface ItemService {
     TaotaoResult reshelfByIds(Long[] ids);
 
     TaotaoResult addItems(TbItem tbItem, String desc);
+
+    TaotaoResult getItemDesc(Long id);
+
+    TaotaoResult updateItem(TbItem tbItem, String desc);
 }

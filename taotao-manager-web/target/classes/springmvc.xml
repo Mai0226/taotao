@@ -11,7 +11,6 @@
 
     <context:component-scan base-package="com.taotao.controller" />
 
-    <context:component-scan  base-package="com.taotao.controller" />
 
     <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
     <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
@@ -34,7 +33,7 @@
     <!-- 引用dubbo服务 -->
     <dubbo:application name="taotao-manager-web"/>
     <dubbo:registry protocol="zookeeper" address="59.110.212.45:2181"/>
-    <dubbo:reference interface="com.taotao.service.ItemService" id="itemService" />
-    <dubbo:reference interface="com.taotao.service.ItemCatService" id="itemCatService" />
-    <dubbo:reference interface="com.taotao.service.PicService" id="picService" />
+    <dubbo:reference interface="com.taotao.service.ItemService" id="itemService" timeout="3600000"/>
+    <dubbo:reference interface="com.taotao.service.ItemCatService" id="itemCatService" timeout="3600000" />
+    <dubbo:reference interface="com.taotao.service.PicService" id="picService" timeout="3600000" />
 </beans>

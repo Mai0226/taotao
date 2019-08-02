@@ -26,4 +26,10 @@ public interface ItemMapper {
     int addItem(TbItem tbItem);
     @Insert("insert into tbitemdesc (itemId, itemDesc, created, updated) VALUE (#{itemId},#{itemDesc},#{created},#{updated})")
     int addItemDesc(TbItemDesc tbItemDesc);
+    @Select("SELECT * from tbitemdesc where itemId = #{id}")
+    TbItemDesc getItemDesc(Long id);
+    @Update("update tbitemdesc set itemDesc = #{desc} where itemId = #{itemId}")
+    int updateDesc(@Param("desc") String desc,@Param("itemId") Long itemId);
+    @Update("update tbitem set title = #{title},sellPoint=#{sellPoint},price =#{price},num=#{num},barcode=#{barcode},image=#{image},cid=#{cid},updated=#{updated} where id = #{id}")
+    int updateItem(TbItem tbItem);
 }

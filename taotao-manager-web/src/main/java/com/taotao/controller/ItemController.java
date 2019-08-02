@@ -3,6 +3,7 @@ package com.taotao.controller;
 import com.alibaba.dubbo.common.URL;
 import com.taotao.commom.pojo.*;
 import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbItemDesc;
 import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,5 +60,21 @@ public class ItemController {
         TaotaoResult taotaoResult = itemService.addItems(tbItem,desc);
         return taotaoResult;
     }
-
+    /*回显商品描述*/
+    @RequestMapping("/rest/item/query/item/desc/{id}")
+    @ResponseBody
+    public TaotaoResult update(@PathVariable  Long id){
+        TaotaoResult taotaoResult = itemService.getItemDesc(id);
+        System.out.println(taotaoResult.getStatus());
+        System.out.println("--------------");
+        TbItemDesc tbItemDesc = (TbItemDesc) taotaoResult.getData();
+        System.out.println(tbItemDesc);
+        return taotaoResult;
+    }
+    @RequestMapping("/rest/item/update")
+    @ResponseBody
+    public TaotaoResult updateItem(TbItem  tbItem,String desc){
+        TaotaoResult taotaoResult = itemService.updateItem(tbItem,desc);
+        return taotaoResult;
+    }
 }
