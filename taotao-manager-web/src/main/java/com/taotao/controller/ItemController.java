@@ -52,6 +52,12 @@ public class ItemController {
         TaotaoResult taotaoResult = itemService.reshelfByIds(ids);
         return taotaoResult;
     }
-
+    /*商品添加*/
+    @RequestMapping("/item/save")
+    @ResponseBody
+    public TaotaoResult addItems(TbItem  tbItem,String desc){
+        TaotaoResult taotaoResult = itemService.addItems(tbItem,desc);
+        return taotaoResult;
+    }
 
 }

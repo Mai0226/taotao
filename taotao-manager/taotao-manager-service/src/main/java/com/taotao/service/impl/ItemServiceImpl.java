@@ -3,20 +3,24 @@ package com.taotao.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.commom.pojo.EasyUIResult;
+import com.taotao.commom.pojo.IDUtils;
 import com.taotao.commom.pojo.QueryVo;
 import com.taotao.commom.pojo.TaotaoResult;
 import com.taotao.mapper.ItemMapper;
 import com.taotao.pojo.TbItem;
+import com.taotao.pojo.TbItemDesc;
 import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class ItemServiceImpl implements ItemService {
     @Autowired
     private ItemMapper itemMapper;
+
     @Override
     public TbItem findiItemById(Long id) {
         return itemMapper.findItemById(id);
@@ -64,5 +68,23 @@ public class ItemServiceImpl implements ItemService {
         return null;
     }
 
-
+    @Override
+    public TaotaoResult addItems(TbItem tbItem, String desc) {
+        Long itemId = IDUtils.genItemId();
+        Date date = new Date();
+        tbItem.setId(itemId);
+        tbItem.setCreated(date);
+        tbItem.setUpdated(date);
+        TbItemDesc tbItemDesc = new TbItemDesc();
+        tbItemDesc.setItemId(itemId);
+        tbItemDesc.setItemDesc(desc);
+        tbItemDesc.setCreated(date);
+        tbItemDesc.setUpdated(date);
+        int itemCount= itemMapper.addItem(tbItem);
+        int itemDescCount = itemMapper.addItemDesc(tbItemDesc);
+        if (itemCount!=0&&itemDescCount!=0){
+            return TaotaoResult.ok();
+        }
+        return null;
+    }
 }

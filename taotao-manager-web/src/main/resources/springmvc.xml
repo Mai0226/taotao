@@ -11,7 +11,6 @@
 
     <context:component-scan base-package="com.taotao.controller" />
 
-    <context:component-scan  base-package="com.taotao.controller" />
 
     <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
     <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>

@@ -2,10 +2,8 @@ package com.taotao.mapper;
 
 import com.taotao.commom.pojo.QueryVo;
 import com.taotao.pojo.TbItem;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import com.taotao.pojo.TbItemDesc;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -23,4 +21,9 @@ public interface ItemMapper {
     int instocByIds(Long[] ids);
     @Update("<script>update tbitem set status = 1 where id in <foreach collection='array' open='(' close=')' separator= ',' item='id'>#{id}</foreach></script>")
     int reshelfByIds(Long[] ids);
+
+    @Insert("insert  into tbitem(id, title, sellPoint, price, num, barcode, image, cid, created, updated) VALUE (#{id},#{title},#{sellPoint},#{price},#{num},#{barcode},#{image},#{cid},#{created},#{updated})")
+    int addItem(TbItem tbItem);
+    @Insert("insert into tbitemdesc (itemId, itemDesc, created, updated) VALUE (#{itemId},#{itemDesc},#{created},#{updated})")
+    int addItemDesc(TbItemDesc tbItemDesc);
 }
