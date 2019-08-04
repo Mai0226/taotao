@@ -71,9 +71,10 @@ public class ItemController {
         System.out.println(tbItemDesc);
         return taotaoResult;
     }
+    /*更新商品信息*/
     @RequestMapping("/rest/item/update")
     @ResponseBody
-    public TaotaoResult updateItem(TbItem  tbItem,String desc){
+    public TaotaoResult updateItem(TbItem tbItem,String desc){
         TaotaoResult taotaoResult = itemService.updateItem(tbItem,desc);
         return taotaoResult;
     }

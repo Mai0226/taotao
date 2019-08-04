@@ -1,9 +1,10 @@
 package com.taotao.service;
 
-import com.taotao.commom.pojo.EasyUIResultNode;
+
+import com.taotao.commom.pojo.EasyUITreeNode;
 
 import java.util.List;
 
 public interface ItemCatService {
-    List<EasyUIResultNode> getNodeById(Long id);
+    List<EasyUITreeNode> getNodeById(Long id);
 }

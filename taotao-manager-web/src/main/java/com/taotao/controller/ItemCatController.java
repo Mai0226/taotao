@@ -1,6 +1,7 @@
 package com.taotao.controller;
 
-import com.taotao.commom.pojo.EasyUIResultNode;
+
+import com.taotao.commom.pojo.EasyUITreeNode;
 import com.taotao.service.ItemCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +18,8 @@ public class ItemCatController {
 
     @RequestMapping("/item/cat/list")
     @ResponseBody
-    public List<EasyUIResultNode> getCat(@RequestParam(value = "id",defaultValue = "0") Long parentId){
-        List<EasyUIResultNode> easyUIResultNodes = itemCatService.getNodeById(parentId);
-        return  easyUIResultNodes;
+    public List<EasyUITreeNode> getCat(@RequestParam(value = "id",defaultValue = "0") Long parentId){
+        List<EasyUITreeNode> easyUITreeNode = itemCatService.getNodeById(parentId);
+        return  easyUITreeNode;
     }
 }

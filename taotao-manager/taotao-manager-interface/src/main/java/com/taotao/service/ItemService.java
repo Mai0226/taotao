@@ -15,7 +15,6 @@ public interface ItemService {
 
     TaotaoResult deleteItems(Long[] ids);
 
-
     TaotaoResult instocByIds(Long[] ids);
 
     TaotaoResult reshelfByIds(Long[] ids);

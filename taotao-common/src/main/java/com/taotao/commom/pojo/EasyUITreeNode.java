@@ -2,7 +2,7 @@ package com.taotao.commom.pojo;
 
 import java.io.Serializable;
 
-public class EasyUIResultNode implements Serializable {
+public class EasyUITreeNode implements Serializable {
     private Long id;
     private String text;
     private String state;
