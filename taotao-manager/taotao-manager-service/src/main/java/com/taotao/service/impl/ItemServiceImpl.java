@@ -2,10 +2,9 @@ package com.taotao.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.taotao.commom.pojo.EasyUIResult;
-import com.taotao.commom.pojo.IDUtils;
-import com.taotao.commom.pojo.QueryVo;
-import com.taotao.commom.pojo.TaotaoResult;
+import com.taotao.common.pojo.EasyUIResult;
+import com.taotao.common.pojo.IDUtils;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.mapper.ItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemDesc;

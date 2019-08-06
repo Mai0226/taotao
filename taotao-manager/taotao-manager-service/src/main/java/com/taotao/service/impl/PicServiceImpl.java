@@ -1,8 +1,8 @@
 package com.taotao.service.impl;
 
-import com.taotao.commom.pojo.HttpUtil;
-import com.taotao.commom.pojo.IDUtils;
-import com.taotao.commom.pojo.PicResult;
+import com.taotao.common.pojo.HttpUtil;
+import com.taotao.common.pojo.IDUtils;
+import com.taotao.common.pojo.PicResult;
 import com.taotao.service.PicService;
 import org.springframework.stereotype.Service;
 

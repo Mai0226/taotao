@@ -1,7 +1,7 @@
 package com.taotao.content.service;
 
-import com.taotao.commom.pojo.EasyUIResult;
-import com.taotao.commom.pojo.TaotaoResult;
+import com.taotao.common.pojo.EasyUIResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.pojo.TbContent;
 
 import java.util.List;

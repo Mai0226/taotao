@@ -1,9 +1,10 @@
 package com.taotao.content.service.impl;
 
-import com.taotao.commom.pojo.EasyUIResult;
-import com.taotao.commom.pojo.JsonUtils;
-import com.taotao.commom.pojo.TaotaoResult;
+import com.taotao.common.pojo.EasyUIResult;
+import com.taotao.common.pojo.JsonUtils;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.content.jedis.JedisClient;
+import com.taotao.content.jedis.JedisClusterClient;
 import com.taotao.content.service.ContentService;
 import com.taotao.mapper.ContentMapper;
 import com.taotao.pojo.TbContent;
@@ -19,6 +20,8 @@ public class ContentServiceImpl implements ContentService {
     private ContentMapper contentMapper;
     @Autowired
     private JedisClient jedisClient;
+    @Autowired
+    private JedisClusterClient jedisClusterClient;
     @Override
     public EasyUIResult getContentByCategoryId(Long categoryId) {
         List<TbContent> tbContents = contentMapper.getContentsByCategoryId(categoryId);

@@ -1,6 +1,6 @@
 package com.taotao.portal.controller;
 
-import com.taotao.commom.pojo.JsonUtils;
+import com.taotao.common.pojo.JsonUtils;
 import com.taotao.content.service.ContentService;
 import com.taotao.pojo.TbContent;
 import com.taotao.portal.pojo.Ad1Node;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;

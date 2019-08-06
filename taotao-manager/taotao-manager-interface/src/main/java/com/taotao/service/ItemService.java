@@ -1,12 +1,8 @@
 package com.taotao.service;
 
-import com.taotao.commom.pojo.EasyUIResult;
-import com.taotao.commom.pojo.QueryVo;
-import com.taotao.commom.pojo.TaotaoResult;
+import com.taotao.common.pojo.EasyUIResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.pojo.TbItem;
-import com.taotao.pojo.TbItemDesc;
-
-import java.util.List;
 
 public interface ItemService {
     TbItem findiItemById(Long id);

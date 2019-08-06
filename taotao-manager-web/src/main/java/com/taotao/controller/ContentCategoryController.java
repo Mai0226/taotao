@@ -1,7 +1,7 @@
 package com.taotao.controller;
 
-import com.taotao.commom.pojo.EasyUITreeNode;
-import com.taotao.commom.pojo.TaotaoResult;
+import com.taotao.common.pojo.EasyUITreeNode;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.content.service.ContentCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

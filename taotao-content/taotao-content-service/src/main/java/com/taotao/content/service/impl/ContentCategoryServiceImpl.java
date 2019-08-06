@@ -1,10 +1,9 @@
 package com.taotao.content.service.impl;
 
-import com.taotao.commom.pojo.EasyUITreeNode;
-import com.taotao.commom.pojo.TaotaoResult;
+import com.taotao.common.pojo.EasyUITreeNode;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.content.service.ContentCategoryService;
 import com.taotao.mapper.ContentCategoryMapper;
-import com.taotao.pojo.TbContent;
 import com.taotao.pojo.TbContentCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.taotao.controller;
 
-import com.taotao.commom.pojo.PicResult;
+import com.taotao.common.pojo.PicResult;
 import com.taotao.service.PicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

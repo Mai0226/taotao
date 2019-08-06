@@ -1,7 +1,7 @@
 package com.taotao.controller;
 
-import com.taotao.commom.pojo.EasyUIResult;
-import com.taotao.commom.pojo.TaotaoResult;
+import com.taotao.common.pojo.EasyUIResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.content.service.ContentService;
 import com.taotao.pojo.TbContent;
 import org.springframework.beans.factory.annotation.Autowired;

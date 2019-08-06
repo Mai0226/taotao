@@ -1,6 +1,5 @@
 package com.taotao.mapper;
 
-import com.taotao.commom.pojo.QueryVo;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemDesc;
 import org.apache.ibatis.annotations.*;
