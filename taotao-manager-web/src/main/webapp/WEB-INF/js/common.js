@@ -140,7 +140,7 @@ var TT = TAOTAO = {
     			    },
     			    onClose : function(){
     			    	$(this).window("destroy");
-    			    }
+    			    },
     			}).window('open');
     		});
     	});
