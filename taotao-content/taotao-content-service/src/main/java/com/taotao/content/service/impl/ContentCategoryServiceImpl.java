@@ -67,6 +67,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
         if (tbContentCategories.size()!=0){
             for (TbContentCategory tbcontent:tbContentCategories) {
                 deleteCategoryById(tbcontent.getId());
+                contentCategoryMapper.deleteCategoryById(tbcontent.getId());
             }
         }
         contentCategoryMapper.deleteCategoryById(id);

@@ -35,6 +35,12 @@
 	         		<li data-options="attributes:{'url':'content'}">内容管理</li>
 	         	</ul>
          	</li>
+			<li>
+				<span>网站搜索服务初始化</span>
+				<ul>
+					<li data-options="attributes:{'url':'init-search'}">数据导入</li>
+				</ul>
+			</li>
          </ul>
     </div>
     <div data-options="region:'center',title:''">

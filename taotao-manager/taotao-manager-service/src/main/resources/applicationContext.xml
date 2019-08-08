@@ -64,7 +64,9 @@
                      pointcut="execution(* com.taotao.service.*.*(..))" />
     </aop:config>
 
-
+    <bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer" >
+        <constructor-arg name="baseURL" value="http://192.168.235.110:8080/solr" />
+    </bean>
 
     <!-- 使用dubbo发布服务 -->
     <!-- 提供方应用信息，用于计算依赖关系 -->

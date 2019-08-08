@@ -72,11 +72,16 @@
        <!-- <constructor-arg name="host" value="192.168.235.110"></constructor-arg>-->
         <constructor-arg name="host" value="192.168.235.120"></constructor-arg>
         <constructor-arg name="port" value="6379"></constructor-arg>
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
+    </bean>
+    <bean class="redis.clients.jedis.JedisPoolConfig" id="jedisPoolConfig">
+        <property name="maxIdle" value="300" />
+        <property name="maxTotal" value="600" />
+        <property name="maxWaitMillis" value="36000000" />
     </bean>
 
-
     <!--redis集群-->
-    <bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
+    <!--<bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
         <constructor-arg>
             <set>
                 <bean class="redis.clients.jedis.HostAndPort">
@@ -105,7 +110,7 @@
                 </bean>
             </set>
         </constructor-arg>
-    </bean>
+    </bean>-->
 
 
     <!-- 使用dubbo发布服务 -->

@@ -1,7 +1,7 @@
 package com.taotao.content.jedis;
 
 public interface JedisClusterClient {
-    String set(String key, String value);
+    /*String set(String key, String value);
     String get(String key);
     Boolean exists(String key);
     Long expire(String key, int seconds);
@@ -10,5 +10,5 @@ public interface JedisClusterClient {
     Long hset(String key, String field, String value);
     String hget(String key, String field);
     Long hdel(String key, String... field);
-    Long del(String key);
+    Long del(String key);*/
 }

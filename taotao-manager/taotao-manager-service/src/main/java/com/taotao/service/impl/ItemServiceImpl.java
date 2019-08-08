@@ -4,14 +4,21 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EasyUIResult;
 import com.taotao.common.pojo.IDUtils;
+import com.taotao.common.pojo.SearchItem;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.mapper.ItemMapper;
+import com.taotao.mapper.SearchItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemDesc;
 import com.taotao.service.ItemService;
+import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.common.SolrDocument;
+import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +26,10 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
     @Autowired
     private ItemMapper itemMapper;
-
+    @Autowired
+    private SolrServer solrServer;
+    @Autowired
+    private SearchItemMapper searchItemMapper;
     @Override
     public TbItem findiItemById(Long id) {
         return itemMapper.findItemById(id);
@@ -82,6 +92,23 @@ public class ItemServiceImpl implements ItemService {
         int itemCount= itemMapper.addItem(tbItem);
         int itemDescCount = itemMapper.addItemDesc(tbItemDesc);
         if (itemCount!=0&&itemDescCount!=0){
+            try {
+                SolrInputDocument document = new SolrInputDocument();
+                SearchItem searchItem = searchItemMapper.getItemsById(itemId);
+                document.addField("id", searchItem.getId());
+                document.addField("item_title", searchItem.getTitle());
+                document.addField("item_sell_point", searchItem.getSell_point());
+                document.addField("item_price", searchItem.getPrice());
+                document.addField("item_image", searchItem.getImage());
+                document.addField("item_category_name", searchItem.getCategory_name());
+                document.addField("item_desc", searchItem.getItem_desc());
+                solrServer.add(document);
+                solrServer.commit();
+            } catch (SolrServerException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return TaotaoResult.ok();
         }
         return null;

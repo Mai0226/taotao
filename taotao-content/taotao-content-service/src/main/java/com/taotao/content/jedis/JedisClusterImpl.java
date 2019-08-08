@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.JedisCluster;
 
-@Component
+/*@Component*/
 public class JedisClusterImpl implements JedisClusterClient {
-    @Autowired
+   /* @Autowired
     private JedisCluster jedisCluster;
 
     @Override
@@ -77,5 +77,5 @@ public class JedisClusterImpl implements JedisClusterClient {
         Long result = jedisCluster.del(key);
         jedisCluster.close();
         return result;
-    }
+    }*/
 }

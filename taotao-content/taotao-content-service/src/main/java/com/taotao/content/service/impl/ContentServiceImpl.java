@@ -20,8 +20,8 @@ public class ContentServiceImpl implements ContentService {
     private ContentMapper contentMapper;
     @Autowired
     private JedisClient jedisClient;
-    @Autowired
-    private JedisClusterClient jedisClusterClient;
+   /* @Autowired
+    private JedisClusterClient jedisClusterClient;*/
     @Override
     public EasyUIResult getContentByCategoryId(Long categoryId) {
         List<TbContent> tbContents = contentMapper.getContentsByCategoryId(categoryId);
