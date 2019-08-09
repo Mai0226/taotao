@@ -19,6 +19,7 @@ public class SearchController {
         try {
             byte[] bytes  = queryString.getBytes("ISO-8859-1");
             String q = new String(bytes,"utf-8");
+            System.out.println(q);
             SearchResult searchResult = searchItemService.search(q,page,30);
             model.addAttribute("query", q);
             model.addAttribute("totalPages", searchResult.getPageCount());
