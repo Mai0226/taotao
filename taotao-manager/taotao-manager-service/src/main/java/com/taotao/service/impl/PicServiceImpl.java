@@ -12,8 +12,7 @@ public class PicServiceImpl implements PicService {
     @Override
     public PicResult upload(byte[] bytes, String name) {
         String endpoint = "oss-cn-beijing.aliyuncs.com";
-        String accessKeyId = "LTAI5SHvLRBBmvvI";
-        String accessKeySecret = "WbzbzVl4ouV6EOij9nsVIWnsOcxMku";
+    
         String bucketName = "max-taotao";
         String newName = IDUtils.genImageName() + name.substring(name.lastIndexOf("."));
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
